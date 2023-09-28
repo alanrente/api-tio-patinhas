@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import carteiraRouter from "./routes/CarteiraRouter";
+import routes from "./routes";
 dotenv.config();
 const app = express();
 
@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   res.json({ message: "rota / metodo get" });
 });
 
-app.use("/carteira", carteiraRouter);
+app.use("/api", routes);
 
 const port = process.env.port;
 
