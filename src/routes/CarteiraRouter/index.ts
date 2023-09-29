@@ -14,7 +14,10 @@ CarteiraRouter.get("/", async (req, res) => {
   if (!body) return res.status(404).json({ message: "Body faltando!" });
 
   try {
-    const carteira = await CarteiraModel.create({ ...body });
+    const carteira = await CarteiraModel.create({
+      ...body,
+      ticket: body.ticket.toUpperCase(),
+    });
     return res.json({ carteira });
   } catch (err: any) {
     return res.status(500).json({ erro: err.message });
