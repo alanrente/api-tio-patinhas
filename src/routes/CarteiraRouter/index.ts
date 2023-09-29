@@ -5,9 +5,9 @@ import { Carteira } from "../../interfaces/Carteira.interface";
 const CarteiraRouter = Router();
 
 CarteiraRouter.get("/", async (req, res) => {
-  const produtos = await CarteiraModel.findAll();
+  const carteiras = await CarteiraModel.findAll();
 
-  res.json({ produtos });
+  res.json({ carteiras });
 }).post("/", async (req, res) => {
   const body = req.body as Carteira;
 

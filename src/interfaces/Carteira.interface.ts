@@ -1,4 +1,4 @@
 export interface Carteira {
-  id?: number;
+  carteiraId?: number;
   ticket: string;
 }
