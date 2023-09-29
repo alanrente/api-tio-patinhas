@@ -13,6 +13,25 @@ const CarteiraModel = sequelize.define(
       type: DataTypes.STRING(8),
       allowNull: false,
     },
+    valorAtual: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+    },
+    quantidade: {
+      type: DataTypes.INTEGER,
+    },
+    precoMedio: {
+      type: DataTypes.DECIMAL(10, 2),
+    },
+    valorPatrimonial: {
+      type: DataTypes.DECIMAL(10, 2),
+    },
+    valorPatrimonialAcao: {
+      type: DataTypes.DECIMAL(10, 2),
+    },
+    lucroPorAcao: {
+      type: DataTypes.DECIMAL(10, 2),
+    },
   },
   { freezeTableName: true }
 );
