@@ -10,8 +10,8 @@ app.use(cors());
 app.use(express.json());
 
 try {
-  sequelize.sync({ alter: true });
-  sequelize.authenticate().then(() => {
+  sequelize.authenticate().then(async () => {
+    await sequelize.sync();
     console.debug("Conectado ao banco");
   });
 } catch (error) {

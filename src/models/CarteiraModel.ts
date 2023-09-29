@@ -12,6 +12,7 @@ const CarteiraModel = sequelize.define(
     ticket: {
       type: DataTypes.STRING(8),
       allowNull: false,
+      unique: true,
     },
     valorAtual: {
       type: DataTypes.DECIMAL(10, 2),
