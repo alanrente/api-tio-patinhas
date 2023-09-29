@@ -7,6 +7,7 @@ import { sequelize } from "./infra/database";
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 try {
   sequelize.authenticate().then(() => {

@@ -11,4 +11,5 @@ export const sequelize = new Sequelize(database, username, password, {
   dialect: "postgres",
   host: host,
   schema: process.env.DB_SCHEMA,
+  sync: { alter: true, force: true },
 });
