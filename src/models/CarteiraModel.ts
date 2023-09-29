@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../infra/database";
 import CategoriaModel from "./CategoriaModel";
+import StatusModel from "./StatusModel";
 
 const CarteiraModel = sequelize.define(
   "CARTEIRA_TB",
@@ -13,6 +14,10 @@ const CarteiraModel = sequelize.define(
     categoria: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    status: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     ticket: {
       type: DataTypes.STRING(8),
@@ -43,5 +48,6 @@ const CarteiraModel = sequelize.define(
 );
 
 CarteiraModel.belongsTo(CategoriaModel, { foreignKey: "categoria" });
+CarteiraModel.belongsTo(StatusModel, { foreignKey: "status" });
 
 export { CarteiraModel };
