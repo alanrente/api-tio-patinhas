@@ -11,7 +11,7 @@ app.use(express.json());
 
 try {
   sequelize.authenticate().then(async () => {
-    await sequelize.sync({ alter: true });
+    // await sequelize.sync({ alter: true });
     console.debug("Conectado ao banco");
   });
 } catch (error) {

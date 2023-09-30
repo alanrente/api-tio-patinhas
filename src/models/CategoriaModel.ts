@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../infra/database";
-import { CarteiraModel } from "./CarteiraModel";
 
 const CategoriaModel = sequelize.define(
   "CATEGORIA_TB",
