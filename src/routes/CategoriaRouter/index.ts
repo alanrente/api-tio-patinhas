@@ -13,13 +13,33 @@ CategoriaRouter.get("/", async (req, res) => {
 CategoriaRouter.post("/", async (req, res) => {
   const categoria = req.body as Categoria;
   try {
-    const carteira = await CategoriaModel.create({
+    const categoriaCreated = await CategoriaModel.create({
       ...categoria,
       categoria: categoria.categoria.toUpperCase(),
     });
 
-    res.json({ message: `Categoria ${carteira.dataValues.categoria} criada!` });
+    res.json({
+      message: `Categoria ${categoriaCreated.dataValues.categoria} criada!`,
+    });
   } catch (error) {}
+});
+
+CategoriaRouter.put("/:categoriaId", async (req, res) => {
+  const { categoria } = req.body as Categoria;
+  const { categoriaId } = req.params;
+
+  try {
+    await CategoriaModel.update(
+      { categoria: categoria.toUpperCase() },
+      { where: { categoriaId: categoriaId } }
+    );
+
+    return res
+      .status(200)
+      .json({ message: `Categoria ${categoriaId} atualizada!` });
+  } catch (error) {
+    return res.status(500).json(error);
+  }
 });
 
 export default CategoriaRouter;
