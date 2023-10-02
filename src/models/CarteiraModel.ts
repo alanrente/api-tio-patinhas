@@ -28,6 +28,9 @@ const CarteiraModel = sequelize.define(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
+    dataValorAtual: {
+      type: DataTypes.DATEONLY,
+    },
     quantidade: {
       type: DataTypes.INTEGER,
     },

@@ -4,14 +4,22 @@ import express from "express";
 import cors from "cors";
 import routes from "./routes";
 import { sequelize } from "./infra/database";
+import { alphavantageService } from "./services/alphavantage.service";
+import { CarteiraModel } from "./models/CarteiraModel";
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// (async () => {
+//   await alphavantageService({ symbol: "mxrf11" });
+//   process.exit(1);
+// })();
+
 try {
   sequelize.authenticate().then(async () => {
     // await sequelize.sync({ alter: true });
+
     console.debug("Conectado ao banco");
   });
 } catch (error) {
